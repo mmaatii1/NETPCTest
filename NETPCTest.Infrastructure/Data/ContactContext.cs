@@ -72,17 +72,14 @@ namespace NETPCTest.Infrastructure.Data
                     new Contact
                     {
                         Id = 1,
-                        Category = new Category(){CategoryName = "Extra", Id = 4},
+                        CategoryId = 1,
                         DateOfBirth = DateTime.Now,
                         Email = "wooow@o2.pl",
                         FirstName = "Mateusz",
                         LastName = "Szreder",
                         Password = "StrongPassword",
                         PhoneNumber = 795343455,
-                        SubCategory = new SubCategory(){Id = 4, SubCategoryName = "Extra"}
                     });
         }
     }
-    
-    
 }
