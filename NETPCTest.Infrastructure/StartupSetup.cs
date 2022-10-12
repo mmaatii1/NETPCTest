@@ -2,6 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NETPCTest.Infrastructure.Data;
+using NETPCTest.Core.Interfaces;
+using NETPCTest.Infrastructure.DataAccess;
+using NETPCTest.Infrastructure.Middleware;
+using MediatR;
+using NETPCTest.Application;
+using NETPCTest.Core.Pipeline;
 
 namespace NETPCTest.Infrastructure
 {
@@ -13,6 +19,12 @@ namespace NETPCTest.Infrastructure
                 options.UseSqlServer(
                     configuration.GetConnectionString("ContactsConnectionString"),
                     b => b.MigrationsAssembly(typeof(ContactContext).Assembly.FullName)));
+           
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<ExceptionHandlingMiddleware>();
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PipelineValidationBehavior<,>));
+            services.AddAutoMapper(typeof(ApplicationMappingProfile).Assembly);
+            services.AddMediatR(typeof(ApplicationMappingProfile).Assembly);
         }
     }
 }

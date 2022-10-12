@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETPCTest.Core", "NETPCTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETPCTest.Infrastructure", "NETPCTest.Infrastructure\NETPCTest.Infrastructure.csproj", "{0B6F3F2D-EC1E-49D8-977C-602C1F7E183D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NETPCTest.Application", "NETPCTest.Application\NETPCTest.Application.csproj", "{22B22A16-C6B2-4069-8062-435D9CC5C4C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0B6F3F2D-EC1E-49D8-977C-602C1F7E183D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6F3F2D-EC1E-49D8-977C-602C1F7E183D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6F3F2D-EC1E-49D8-977C-602C1F7E183D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B22A16-C6B2-4069-8062-435D9CC5C4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B22A16-C6B2-4069-8062-435D9CC5C4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B22A16-C6B2-4069-8062-435D9CC5C4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B22A16-C6B2-4069-8062-435D9CC5C4C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
