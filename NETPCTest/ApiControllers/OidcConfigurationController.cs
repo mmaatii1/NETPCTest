@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NETPCTest.Controllers
+namespace NETPCTest.ApiControllers
 {
     public class OidcConfigurationController : Controller
     {
