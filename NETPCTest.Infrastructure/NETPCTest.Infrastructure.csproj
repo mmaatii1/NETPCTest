@@ -17,8 +17,4 @@
     <ProjectReference Include="..\NETPCTest.Core\NETPCTest.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DataAccess\" />
-  </ItemGroup>
-
 </Project>
