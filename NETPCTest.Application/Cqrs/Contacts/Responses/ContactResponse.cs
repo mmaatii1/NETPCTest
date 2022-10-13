@@ -14,15 +14,21 @@ namespace NETPCTest.Application.Cqrs.Contacts.Responses
     /// <param name="LastName"></param>
     /// <param name="Email"></param>
     /// <param name="Password"></param>
-    /// <param name="Category"></param>
-    /// <param name="SubCategory"></param>
     /// <param name="PhoneNumber"></param>
     /// <param name="DateOfBirth"></param>
-    public record ContactResponse(int Id, string FirstName,
-        string LastName, string Email, string Password,
-        int CategoryId, int SubCategoryId,
-        string CategoryName, string SubCategoryName,
-        int PhoneNumber, DateTime DateOfBirth)
+    public class ContactResponse
     {
-    }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int CategoryId { get; set; }
+        public int SubCategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public string SubCategoryName { get; set; }
+        public int PhoneNumber { get; set; }
+        public DateTime DateOfBirth { get; set; }
+    };
+
 }

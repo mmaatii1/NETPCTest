@@ -4,6 +4,7 @@ using AutoMapper;
 using NETPCTest.Application.Cqrs.Contacts.Commands;
 using NETPCTest.Application.Cqrs.Contacts.Responses;
 using NETPCTest.Core.Entities;
+using NETPCTest.Core.Exceptions;
 
 namespace NETPCTest.Application.Cqrs.Contacts.Handlers
 {
@@ -24,7 +25,8 @@ namespace NETPCTest.Application.Cqrs.Contacts.Handlers
         private readonly IGenericRepository<SubCategory> _subCategoryRepo;
         private readonly IMapper _mapper;
 
-        public CreateContactCommandHandler(IGenericRepository<Contact> repo, IGenericRepository<Category> categoryRepo, IGenericRepository<SubCategory> subCategoryRepo,
+        public CreateContactCommandHandler(IGenericRepository<Contact> repo, IGenericRepository<Category> categoryRepo,
+            IGenericRepository<SubCategory> subCategoryRepo,
             IMapper mapper)
         {
             _mapper = mapper;
@@ -41,11 +43,20 @@ namespace NETPCTest.Application.Cqrs.Contacts.Handlers
             {
                 subCategory = await _subCategoryRepo.GetByIdAsync((int)command.SubCategoryId);
             }
+
             var contact = _mapper.Map<Contact>(command);
             contact.Category = category;
             contact.SubCategory = subCategory;
-            var createdEntity = await _contactRepo.AddAsync(contact);
-            return _mapper.Map<ContactResponse>(createdEntity);
+            try
+            {
+                var createdEntity = await _contactRepo.AddAsync(contact);
+                return _mapper.Map<ContactResponse>(createdEntity);
+            }
+            catch (Exception e)
+            {
+                //yeah.. this is simplyfication ;d i could do it better but have little time
+                throw new EmailExists(command.Email);
+            }
         }
     }
 }

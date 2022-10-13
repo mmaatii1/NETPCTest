@@ -11,7 +11,7 @@ namespace NETPCTest.Infrastructure.Middleware
     /// So this class is middleware for me to use with mediator pipeline which
     /// i will use in this app. I define only 3 basic errors, but it could easily
     /// be expanded, if there is aanother error which i havent specified, internal
-    /// server is throw. 
+    /// server is throw. I expanded it by another custom email exception it will be useful on front. 
     /// </summary>
     public sealed class ExceptionHandlingMiddleware : IMiddleware
     {
@@ -58,6 +58,7 @@ namespace NETPCTest.Infrastructure.Middleware
                 BadRequestException => StatusCodes.Status400BadRequest,
                 NotFoundException => StatusCodes.Status404NotFound,
                 ValidationException => StatusCodes.Status422UnprocessableEntity,
+                ConcurencyException => StatusCodes.Status409Conflict,
                 _ => StatusCodes.Status500InternalServerError
             };
 
