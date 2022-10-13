@@ -13,13 +13,11 @@ namespace NETPCTest.Application.Cqrs.Contacts.Commands
     /// <param name="LastName"></param>
     /// <param name="Email"></param>
     /// <param name="Password"></param>
-    /// <param name="Category"></param>
-    /// <param name="SubCategory"></param>
     /// <param name="PhoneNumber"></param>
     /// <param name="DateOfBirth"></param>
     public record CreateContactCommand(string FirstName, 
         string LastName, string Email, string Password,
-        Category Category, SubCategory? SubCategory,
+        int CategoryId, int? SubCategoryId,
         int PhoneNumber, DateTime DateOfBirth) : IRequest<ContactResponse>
     {
     }

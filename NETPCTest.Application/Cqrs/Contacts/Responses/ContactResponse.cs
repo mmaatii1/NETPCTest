@@ -20,7 +20,8 @@ namespace NETPCTest.Application.Cqrs.Contacts.Responses
     /// <param name="DateOfBirth"></param>
     public record ContactResponse(int Id, string FirstName,
         string LastName, string Email, string Password,
-        Category Category, SubCategory? SubCategory,
+        int CategoryId, int SubCategoryId,
+        string CategoryName, string SubCategoryName,
         int PhoneNumber, DateTime DateOfBirth)
     {
     }

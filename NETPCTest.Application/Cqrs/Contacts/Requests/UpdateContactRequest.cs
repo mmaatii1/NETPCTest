@@ -4,7 +4,7 @@ namespace NETPCTest.Application.Cqrs.Contacts.Requests
 {
     public record UpdateContactRequest(string FirstName,
         string LastName, string Email, string Password,
-        Category Category, SubCategory? SubCategory,
+        int CategoryId, int? SubCategoryId,
         int PhoneNumber, DateTime DateOfBirth)
     {
     }

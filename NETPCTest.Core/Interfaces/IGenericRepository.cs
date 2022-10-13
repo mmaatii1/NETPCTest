@@ -8,6 +8,8 @@ namespace NETPCTest.Core.Interfaces
         Task<TEntity> AddAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task<TEntity> DeleteAsync(int id);
-        IQueryable<TEntity> GetWithEntity<TProperty>(Expression<Func<TEntity, TProperty>> includeEntityOne);
+        IQueryable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(
+            Expression<Func<TEntity, TProperty>> includeEntityOne,
+            Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo);
     }
 }

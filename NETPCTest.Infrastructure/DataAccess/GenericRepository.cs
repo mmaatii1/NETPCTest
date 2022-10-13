@@ -38,9 +38,9 @@ namespace NETPCTest.Infrastructure.DataAccess
             return entityToDelete;
         }
 
-        public IQueryable<TEntity> GetWithEntity<TProperty>(Expression<Func<TEntity, TProperty>> includeEntityOne)
+        public IQueryable<TEntity> GetWithEntity<TProperty, TPropertyTwo>(Expression<Func<TEntity, TProperty>> includeEntityOne, Expression<Func<TEntity, TPropertyTwo>>? includeEntityTwo)
         {
-            return _dbSet.Include(includeEntityOne);
+            return _dbSet.Include(includeEntityOne).Include(includeEntityTwo);
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
