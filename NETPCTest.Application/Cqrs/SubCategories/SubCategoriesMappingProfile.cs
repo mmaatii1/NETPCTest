@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NETPCTest.Application.Cqrs.SubCategories.Commands;
+using NETPCTest.Application.Cqrs.SubCategories.Requests;
 using NETPCTest.Application.Cqrs.SubCategories.Responses;
 using NETPCTest.Core.Entities;
 
@@ -11,6 +12,7 @@ namespace NETPCTest.Application.Cqrs.SubCategories
         {
             CreateMap<SubCategory, SubCategoryResponse>().ReverseMap();
             CreateMap<CreateSubCategoryCommand, SubCategory>();
+            CreateMap<CreateSubCategoryRequest, CreateSubCategoryCommand>();
         }
     }
 }
