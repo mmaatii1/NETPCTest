@@ -6,8 +6,10 @@ using NETPCTest.Core.Interfaces;
 using NETPCTest.Infrastructure.DataAccess;
 using NETPCTest.Infrastructure.Middleware;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using NETPCTest.Application;
-using NETPCTest.Core.Pipeline;
+using NETPCTest.Infrastructure.Models;
+using NETPCTest.Infrastructure.Pipeline;
 
 namespace NETPCTest.Infrastructure
 {
@@ -25,6 +27,12 @@ namespace NETPCTest.Infrastructure
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PipelineValidationBehavior<,>));
             services.AddAutoMapper(typeof(ApplicationMappingProfile).Assembly);
             services.AddMediatR(typeof(ApplicationMappingProfile).Assembly);
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ContactContext>();
+            services.AddIdentityServer()
+                .AddApiAuthorization<ApplicationUser, ContactContext>();
+            services.AddAuthentication()
+                .AddIdentityServerJwt();
         }
     }
 }

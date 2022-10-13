@@ -1,21 +1,28 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Duende.IdentityServer.EntityFramework.Options;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using NETPCTest.Core.Entities;
+using NETPCTest.Infrastructure.Models;
 
 namespace NETPCTest.Infrastructure.Data
 {
-    public class ContactContext : DbContext
+    public class ContactContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
 
-        public ContactContext(DbContextOptions<ContactContext> options) : base(options)
+        public ContactContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+            : base(options, operationalStoreOptions)
         {
 
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //to make identityWork
+            base.OnModelCreating(builder);
             //i made few of the fields required and email indexed as unique, 
             //i didnt go with it further as i think its out of scope, i will handle
             //validation on front and backend as well. 

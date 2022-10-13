@@ -2,7 +2,7 @@
 using MediatR;
 using ValidationException = NETPCTest.Core.Exceptions.ValidationException;
 
-namespace NETPCTest.Core.Pipeline
+namespace NETPCTest.Infrastructure.Pipeline
 {
     /// <summary>
     /// Thanks to that class i will be able to
