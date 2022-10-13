@@ -10,7 +10,7 @@ namespace NETPCTest.Core.Pipeline
     /// fluentValdiation package. If any validation erroros occur
     /// they is Thrown my custom exception, which is caught by middleware which wrap
     /// it in correct error structure for api calls and display info to user.
-    ///
+    ///This class that im inheriting is from mediatR package.
     /// </summary>
     /// <typeparam name="TRequest">User sending</typeparam>
     /// <typeparam name="TResponse">Application returning</typeparam>
