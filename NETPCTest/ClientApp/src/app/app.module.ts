@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -12,6 +12,7 @@ import { ApiAuthorizationModule } from '../api-authorization/api-authorization.m
 import { AuthorizeGuard } from '../api-authorization/authorize.guard';
 import { ContactListComponent } from './contacts/contacts-list.component';
 import { AuthorizeInterceptor } from '../api-authorization/authorize.interceptor';
+import { ContactEditComponent } from './contacts/edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,17 +20,20 @@ import { AuthorizeInterceptor } from '../api-authorization/authorize.interceptor
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactEditComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'contactList', component: ContactListComponent, canActivate: [AuthorizeGuard] },
+      { path: 'contact/:id', component: ContactEditComponent },
     ])
   ],
   providers: [
