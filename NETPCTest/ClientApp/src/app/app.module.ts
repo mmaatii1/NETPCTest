@@ -13,6 +13,7 @@ import { AuthorizeGuard } from '../api-authorization/authorize.guard';
 import { ContactListComponent } from './contacts/contacts-list.component';
 import { AuthorizeInterceptor } from '../api-authorization/authorize.interceptor';
 import { ContactEditComponent } from './contacts/edit/contact-edit.component';
+import { ContactDetailComponent } from './contacts/details/contact-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContactEditComponent } from './contacts/edit/contact-edit.component';
     CounterComponent,
     ContactListComponent,
     ContactEditComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +35,7 @@ import { ContactEditComponent } from './contacts/edit/contact-edit.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'contactList', component: ContactListComponent, canActivate: [AuthorizeGuard] },
-      { path: 'contact/:id', component: ContactEditComponent },
+      { path: 'contact/:id', component: ContactDetailComponent },
     ])
   ],
   providers: [
