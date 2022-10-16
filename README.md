@@ -16,4 +16,6 @@ Clone repo and open it in visual studio.
 Used db is sql, connection string is named "ContactsConnectionString"and its in the appsettings.development.json, you might need to change it to yours. Db is seed with one row of data, so after you change connection string to appropriate one, naviagate to Infrastructure project and open PM console, type in update-database command. 
 Default applicationUrl is set to https://localhost:7061 and SPA proxy is run by default.
 Youan navigate to swagger at https://localhost:7061/swagger. 
-In angular app there is authorizaiton for contacts page, so in order to view it you must register, click to confirm email address and log in. Only view list and view for specific contact is working for now, no update nor delete. 
+In angular app there is authorizaiton for contacts page, so in order to view it you must register, click to confirm email address and log in. Only view list and view for specific contact is working for now, no update nor delete.
+
+I didnt have time to do more of it and i do have some problems with angular for now. Im new to it ;d But i think backend is done well :) 
