@@ -10,17 +10,13 @@ namespace NETPCTest.Application.Cqrs.Contacts.Handlers
     public class GetAllContactsQueryHandler : IRequestHandler<GetAllContactsQuery, IEnumerable<ContactResponse>>
     {
         private readonly IGenericRepository<Contact> _contactRepo;
-        private readonly IGenericRepository<Category> _categoryRepo;
-        private readonly IGenericRepository<SubCategory> _subCategoryRepo;
         private readonly IMapper _mapper;
 
-        public GetAllContactsQueryHandler(IGenericRepository<Contact> repo, IGenericRepository<Category> categoryRepo, IGenericRepository<SubCategory> subCategoryRepo,
+        public GetAllContactsQueryHandler(IGenericRepository<Contact> repo,
             IMapper mapper)
         {
             _mapper = mapper;
             _contactRepo = repo;
-            _categoryRepo = categoryRepo;
-            _subCategoryRepo = subCategoryRepo;
         }
 
         public async Task<IEnumerable<ContactResponse>> Handle(GetAllContactsQuery request, CancellationToken cancellationToken)

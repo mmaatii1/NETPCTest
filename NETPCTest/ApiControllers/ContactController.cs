@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Runtime.CompilerServices;
+using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NETPCTest.Application.Cqrs.Contacts.Commands;
@@ -26,6 +27,13 @@ namespace NETPCTest.ApiControllers
             return Ok(response);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetContactById([FromRoute] int id)
+        {
+            var query = new GetContactByIdQuery(id);
+            var response = await _mediator.Send(query);
+            return Ok(response);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateContact([FromBody] CreateContactRequest request)
         {

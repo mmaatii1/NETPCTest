@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NETPCTest.Application.Cqrs.Contacts.Commands;
+using NETPCTest.Application.Cqrs.Contacts.Queries;
 using NETPCTest.Application.Cqrs.Contacts.Requests;
 using NETPCTest.Application.Cqrs.Contacts.Responses;
 using NETPCTest.Core.Entities;
@@ -31,6 +32,7 @@ namespace NETPCTest.Application.Cqrs.Contacts
             CreateMap<SubCategory, ContactResponse>()
                 .ForMember(x => x.SubCategoryId, x => x.MapFrom(c => c.Id))
                 .ForMember(x => x.SubCategoryName, x => x.MapFrom(c => c.SubCategoryName));
+
         }
     }
 }

@@ -4,8 +4,6 @@ using NETPCTest.Application.Cqrs.Contacts.Responses;
 
 namespace NETPCTest.Application.Cqrs.Contacts.Queries
 {
-    public record GetAllContactsQuery : IRequest<IEnumerable<ContactResponse>>, IRequest<IEnumerable<CategoryResponse>>
-    {
-
-    };
+    public record GetAllContactsQuery : IRequest<IEnumerable<ContactResponse>>;
+    
 }
